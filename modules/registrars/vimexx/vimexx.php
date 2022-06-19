@@ -112,7 +112,7 @@ function vimexx_RegisterDomain($params)
     $response = $vimexx->request('POST', '/whmcs/domain/register', [
         'sld' => $sld,
         'tld' => $tld
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if(!$response['result']) {
         $message = $response['message'];
@@ -156,7 +156,7 @@ function vimexx_TransferDomain($params)
         'sld'   => $sld,
         'tld'   => $tld,
         'token' => $token
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if(!$response['result']) {
         $message = $response['message'];
@@ -198,7 +198,7 @@ function vimexx_RenewDomain($params)
     $response = $vimexx->request('POST', '/whmcs/domain/extend', [
         'sld' => $sld,
         'tld' => $tld
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if(!$response['result']) {
         $message = $response['message'];
@@ -240,7 +240,7 @@ function vimexx_RequestDelete($params)
     $response = $vimexx->request('DELETE', '/whmcs/domain/', [
         'sld' => $sld,
         'tld' => $tld
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if(!$response['result']) {
         $message = $response['message'];
@@ -282,7 +282,7 @@ function vimexx_GetNameservers($params)
     $response = $vimexx->request('POST', '/whmcs/domain/nameservers', [
         'sld' => $sld,
         'tld' => $tld
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if (!$response['result']) {
         $message = $response['message'];
@@ -354,7 +354,7 @@ function vimexx_SaveNameservers($params)
         'tld'           => $tld,
         'nameservers'   => $nameservers,
         'name'          => 'whmcs-' . $sld . '.' . $tld
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if (!$response['result']) {
         $message = $response['message'];
@@ -394,7 +394,7 @@ function vimexx_GetDNS($params)
     $response = $vimexx->request('POST', '/whmcs/domain/dns', [
         'sld'           => $sld,
         'tld'           => $tld,
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if (!$response['result']) {
         $message = $response['message'];
@@ -476,7 +476,7 @@ function vimexx_SaveDNS($params)
         'sld'           => $sld,
         'tld'           => $tld,
         'dns_records'   => $dnsRecords
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if (!$response['result']) {
         $message = $response['message'];
@@ -516,7 +516,7 @@ function vimexx_GetEPPCode($params)
     $response = $vimexx->request('POST', '/whmcs/domain/token', [
         'sld' => $sld,
         'tld' => $tld
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     if(!$response['result']) {
         $message = $response['message'];
@@ -693,12 +693,12 @@ function vimexx_ContactApply($params)
     $response       = $vimexx->request('POST', '/whmcs/domain/contacts', [
         'sld'           => $sld,
         'tld'           => $tld,
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     $responseCheck  = $vimexx->request('POST', '/whmcs/domain/contact/checkJob', [
         'sld'           => $sld,
         'tld'           => $tld,
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     $contacts       = ($response['result'] && !empty($response['data'])) ? $response['data']: [];
 
@@ -752,7 +752,7 @@ function vimexx_SaveContactApply($params, $requestParams)
         'sld'           => $sld,
         'tld'           => $tld,
         'contacts'      => $contacts
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     global $smarty;
 
@@ -787,11 +787,11 @@ function vimexx_ContactModify($params)
     $vimexx->setApi_login($clientId, $clientKey, $username, $password, $apiUrl, $endpoint);
     $vimexx->setApi_testmodus($testmode);
 
-    $responseCountries  = $vimexx->request('POST', '/whmcs/countries', [], $params['whmcsVersion']);
+    $responseCountries  = $vimexx->request('POST', '/whmcs/countries', [], $params['VersionWhmcs']);
     $response           = $vimexx->request('POST', '/whmcs/domain/contacts', [
         'sld'           => $sld,
         'tld'           => $tld,
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     $contacts   = ($response['result'] && !empty($response['data'])) ? $response['data']: [];
     $countries  = ($responseCountries['result'] && !empty($responseCountries['data'])) ? $responseCountries['data'] : [];
@@ -859,7 +859,7 @@ function vimexx_SaveContactModify($params, $requestParams)
         'sld'           => $sld,
         'tld'           => $tld,
         'contact'       => $contact,
-    ], $params['whmcsVersion']);
+    ], $params['VersionWhmcs']);
 
     global $smarty;
 

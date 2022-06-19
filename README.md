@@ -1,4 +1,4 @@
-# WHMCS module Vimexx
+# Vimexx registrar module for WHMCS
 
 ## Prerequisites
 
@@ -19,6 +19,7 @@ The required information can be requested at the vimexx helpdesk.
 * Search for the Vimexx module and click ‘Activate’
 * Click ‘Configure’ and enter the required information (Turn test mode on to use test mode)
 * Click save to store the settings
+* 
 
 ## Cron
 Some functionalities require the WHMCS domain cron to run. Check if the WHMCS domain cron is set.
@@ -30,3 +31,4 @@ If you find anything that’s not working as it should, please contact our helpd
 ## Authors
 
 * **Vimexx** - *Developing*
+* **Tom van Veen** - *Tinkerer*

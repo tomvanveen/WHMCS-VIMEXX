@@ -349,7 +349,7 @@ function vimexx_SaveNameservers($params)
         $nameservers[] = array('ns' => $params['ns5']);
     }
 
-    $response = $vimexx->request('PUT', '/whmcs/domain/' . $sld . '.' . $tld . '/nameservers', [
+    $response = $vimexx->request('PUT', '/whmcs/domain/nameservers', [
         'sld'           => $sld,
         'tld'           => $tld,
         'nameservers'   => $nameservers,

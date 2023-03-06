@@ -21,7 +21,7 @@ function vimexx_MetaData()
 {
     return array(
         'DisplayName' => 'Vimexx REST API Module for WHMCS',
-        'APIVersion' => '1.1.1',
+        'APIVersion' => '1.1.2',
     );
 }
 
